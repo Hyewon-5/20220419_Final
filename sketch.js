@@ -26,6 +26,8 @@ function setup() {
   buttonPause = createButton("PAUSE");
   buttonPause.mousePressed(pauseMusic);
   
+  buttonJump = createButton("<<");
+  buttonJump.mousePressed(jumpSong2);  
   buttonJump = createButton(">>");
   buttonJump.mousePressed(jumpSong);
   jumpV = 0;
@@ -55,10 +57,18 @@ function pauseMusic() {
   }
 }
 
+
 function jumpSong() {
   jumpV = jumpV + 17.3424;
   if(jumpV + 17.3424 >= 173.424){
     jumpV = 173.423;
+  }
+  mm.jump(jumpV);
+}
+function jumpSong2() {
+  jumpV = jumpV - 17.3424;
+  if(jumpV <= 17.3424){
+    jumpV = 0;
   }
   mm.jump(jumpV);
 }
