@@ -7,6 +7,10 @@ let button;
 
 let jumpV;
 
+let slider;
+let sliderPan;
+let sliderRate;
+
 
 function preload() {
   soundFormats("mp3");
@@ -31,11 +35,17 @@ function setup() {
   buttonJump = createButton(">>");
   buttonJump.mousePressed(jumpSong);
   jumpV = 0;
+  
+  slider = createSlider(0, 2, 0.5, 0.1);
+  sliderRate = createSlider(0, 2, 1, 0.1);
 
 }
 
 function draw() {
   background(220);
+  mm.setVolume(vol);
+  vol = slider.value();
+  mm.rate(sliderRate.value());
 }
 
 function playMusic() {
