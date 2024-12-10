@@ -19,6 +19,9 @@ function setup() {
   vol = 0.5;
   button = createButton("PLAY");
   button.mousePressed(playMusic);
+  
+  buttonPause = createButton("PAUSE");
+  buttonPause.mousePressed(pauseMusic);
 }
 
 function draw() {
@@ -31,6 +34,15 @@ function playMusic() {
     button.html("STOP");
   } else {
     mm.stop();
+    button.html("PLAY");
+  }
+}
+
+function pauseMusic() {
+  if (!mm.isPlaying()) {
+
+  } else {
+    mm.pause();
     button.html("PLAY");
   }
 }
