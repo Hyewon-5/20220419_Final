@@ -5,6 +5,9 @@ let amp;
 let vol;
 let button;
 
+let jumpV;
+
+
 function preload() {
   soundFormats("mp3");
   mm = loadSound("strategy.mp3");
@@ -22,6 +25,11 @@ function setup() {
   
   buttonPause = createButton("PAUSE");
   buttonPause.mousePressed(pauseMusic);
+  
+  buttonJump = createButton(">>");
+  buttonJump.mousePressed(jumpSong);
+  jumpV = 0;
+
 }
 
 function draw() {
@@ -45,4 +53,12 @@ function pauseMusic() {
     mm.pause();
     button.html("PLAY");
   }
+}
+
+function jumpSong() {
+  jumpV = jumpV + 17.3424;
+  if(jumpV + 17.3424 >= 173.424){
+    jumpV = 173.423;
+  }
+  mm.jump(jumpV);
 }
