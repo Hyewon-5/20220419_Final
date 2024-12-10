@@ -11,6 +11,9 @@ let slider;
 let sliderPan;
 let sliderRate;
 
+let img;
+let img2;
+
 
 function preload() {
   soundFormats("mp3");
@@ -20,6 +23,9 @@ function preload() {
 
 
 function setup() {
+  img2 = loadImage("stage.PNG");
+  img = loadImage("twice.png");
+  
   createCanvas(640, 640);
   
   amp = new p5.Amplitude();
@@ -42,10 +48,14 @@ function setup() {
 }
 
 function draw() {
+  img = loadImage("stage.PNG");
   background(220);
+  
   mm.setVolume(vol);
   vol = slider.value();
   mm.rate(sliderRate.value());
+  
+  image(img, 150+amp.getLevel()*300, 0, 279, 652);
 }
 
 function playMusic() {
